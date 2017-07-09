@@ -1,0 +1,3 @@
+[submodule "ansible/roles/vmware.ansible-coreos-bootstrap"]
+	path = ansible/roles/vmware.ansible-coreos-bootstrap
+	url = https://github.com/vmware/ansible-coreos-bootstrap.git
