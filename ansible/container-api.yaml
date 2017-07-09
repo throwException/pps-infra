@@ -1,0 +1,7 @@
+- name: api
+  docker_container:
+    labels:
+      "traefik.enable": "true"
+    image: "ppschweiz/pps-api"
+    name: "api"
+    state: started

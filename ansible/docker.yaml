@@ -1,19 +1,5 @@
 - name: Docker configuration
   hosts: coreos
   tasks:
-    - name: Start docker
-      become: True
-      service:
-        name: docker
-        state: started
-    - name: Start Traefik
-      docker_container:
-        image: "traefik"
-        name: "traefik"
-        ports: "80:80 443:443"
-        state: started
-        command: --web --docker --docker.domain=piratenpartei.ch --logLevel=DEBUG
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - /dev/null:/traefik.toml
-    - include: container-*.yaml
+    - include: container-traefik.yaml
+    - include: container-api.yaml

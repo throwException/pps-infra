@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: bootstrap on coreos
+  hosts: coreos
   gather_facts: False
   roles:
     - vmware.ansible-coreos-bootstrap

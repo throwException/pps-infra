@@ -1,0 +1,5 @@
+localhost
+coreos-4-p.piratenpartei.ch ansible_ssh_user=core ansible_python_interpreter=/home/core/bin/python
+
+[coreos]
+coreos-4-p.piratenpartei.ch
