@@ -13,6 +13,7 @@
            MYSQL_USER="press-crm"
            MYSQL_DATABASE="press-crm"
 
+     - name: start second mysql container
        docker_container:
          image: "mysql:5"
          name: "press-crm-mysql-civi"
