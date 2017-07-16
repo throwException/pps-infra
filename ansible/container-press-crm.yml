@@ -11,5 +11,5 @@
          env:
            MYSQL_ROOT_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/mysql/root:value') }}"
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/user:value') }}"
-           MYSQL_USER="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
+           MYSQL_USER="press-crm"
            MYSQL_DATABASE="press-crm"
