@@ -28,4 +28,4 @@
          env:
            WORDPRESS_DB_NAME="press-crm"
            WORDPRESS_DB_USER="press-crm"
-           WORDPRESS_DB_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/user:value') }}"
+           WORDPRESS_DB_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
