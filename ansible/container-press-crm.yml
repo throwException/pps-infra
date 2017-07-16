@@ -7,6 +7,7 @@
          pull: True
          volumes:
            - /data/press-crm/mysql:/var/lib/mysql
+           - /data/press-crm/mysql-initdb:/docker-entrypoint-initdb.d
          env:
            MYSQL_ROOT_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/mysql/root:value') }}"
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/user:value') }}"
