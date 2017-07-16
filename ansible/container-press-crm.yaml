@@ -13,6 +13,20 @@
            MYSQL_USER="press-crm"
            MYSQL_DATABASE="press-crm"
 
+       docker_container:
+         image: "mysql:5"
+         name: "press-crm-mysql-civi"
+         state: started
+         pull: True
+         volumes:
+           - /data/press-crm/mysql-civi:/var/lib/mysql
+           - /data/press-crm/mysql-civi-initdb:/docker-entrypoint-initdb.d
+         env:
+           MYSQL_ROOT_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/mysql/root:value') }}"
+           MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
+           MYSQL_USER="press-crm"
+           MYSQL_DATABASE="press-crm-civi"
+
      - name: start civicrm container
        docker_container:
          image: ppschweiz/wordpress
@@ -23,6 +37,7 @@
          pull: True
          links:
            - press-crm-mysql:mysql
+           - press-crm-mysql-civi:mysql-civi
          volumes:
            - /data/press-crm/wordpress:/var/www/html
          env:
