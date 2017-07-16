@@ -13,3 +13,18 @@
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/user:value') }}"
            MYSQL_USER="press-crm"
            MYSQL_DATABASE="press-crm"
+
+     - name: start civicrm container
+       docker_container:
+         image: ppschweiz/wordpress
+         name: "press-crm-wordpress"
+         state: started
+         pull: True
+         links:
+           - press-crm-mysql:mysql
+         volumes:
+           - /data/press-crm/wordpress:/var/www/html
+         env:
+           WORDPRESS_DB_NAME="press-crm"
+           WORDPRESS_DB_USER="press-crm"
+           WORDPRESS_DB_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/user:value') }}"
