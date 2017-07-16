@@ -1,4 +1,3 @@
-- name: press-crm
      - name: start mysql container
        docker_container:
          image: "mysql:5"

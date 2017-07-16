@@ -3,3 +3,4 @@
   tasks:
     - include: container-traefik.yaml
     - include: container-api.yaml
+    - include: container-press-crm.yaml
