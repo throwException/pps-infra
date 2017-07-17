@@ -64,7 +64,7 @@
      - name: start backup container for first mysql container
        docker_container:
          image: yloeffler/mysql-backup
-         name: "press-crm-civi-backup"
+         name: "press-crm-backup"
          state: started
          pull: True
          links:
