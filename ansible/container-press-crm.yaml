@@ -60,3 +60,29 @@
            WORDPRESS_DB_NAME="press-crm"
            WORDPRESS_DB_USER="press-crm"
            WORDPRESS_DB_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
+
+     - name: start backup container for first mysql container
+       docker_container:
+         image: yloeffler/mysql-backup
+         name: "press-crm-civi-backup"
+         state: started
+         pull: True
+         links:
+           - press-crm-mysql:mysql
+         volumes:
+           - /data/mysql-backup/press-crm/:/backup
+         env:
+           MAX_BACKUPS=3
+
+     - name: start backup container for second mysql container
+       docker_container:
+         image: yloeffler/mysql-backup
+         name: "press-crm-civi-backup"
+         state: started
+         pull: True
+         links:
+           - press-crm-mysql-civi:mysql
+         volumes:
+           - /data/mysql-backup/press-crm-civi/:/backup
+         env:
+           MAX_BACKUPS=3
