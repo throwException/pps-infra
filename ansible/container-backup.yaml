@@ -1,0 +1,15 @@
+     - name: start duplicity container
+       docker_container:
+         image: "datacoda/cron-duplicity"
+         name: "duplicity"
+         state: started
+         pull: True
+         volumes:
+           - /data:/data
+         env:
+           AWS_ACCESS_KEY_ID="{{ lookup('hashi_vault', 'secret=secret/duplicity/aws-access-key-id:value') }}"
+           AWS_SECRET_ACCESS_KEY="{{ lookup('hashi_vault', 'secret=secret/duplicity/aws-secret-access-key:value') }}"
+           PASSPHRASE="{{ lookup('hashi_vault', 'secret=secret/duplicity/passphrase:value') }}"
+           SOURCE_PATH="/data"
+           REMOTE_URL="s3://sos.exo.io/pps-backup"
+           PARAMS="--exclude /data/mysql"
