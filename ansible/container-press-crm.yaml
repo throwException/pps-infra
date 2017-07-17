@@ -54,6 +54,7 @@
          pull: True
          links:
            - press-crm-mysql:mysql
+           - press-crm-mysql-civi:mysql-civi
          volumes:
            - /data/press-crm/wordpress:/var/www/html
          command: /var/www/html/startjobs.sh
