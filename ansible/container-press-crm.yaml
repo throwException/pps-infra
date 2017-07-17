@@ -5,8 +5,7 @@
          state: started
          pull: True
          volumes:
-           - /data/press-crm/mysql:/var/lib/mysql
-           - /data/press-crm/mysql-initdb:/docker-entrypoint-initdb.d
+           - /data/mysql/press-crm:/var/lib/mysql
          env:
            MYSQL_ROOT_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/mysql/root:value') }}"
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
@@ -20,8 +19,7 @@
          state: started
          pull: True
          volumes:
-           - /data/press-crm/mysql-civi:/var/lib/mysql
-           - /data/press-crm/mysql-civi-initdb:/docker-entrypoint-initdb.d
+           - /data/mysql/press-crm-civi:/var/lib/mysql
          env:
            MYSQL_ROOT_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/mysql/root:value') }}"
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
@@ -40,7 +38,7 @@
            - press-crm-mysql:mysql
            - press-crm-mysql-civi:mysql-civi
          volumes:
-           - /data/press-crm/wordpress:/var/www/html
+           - /data/files/press-crm/:/var/www/html
          env:
            WORDPRESS_DB_NAME="press-crm"
            WORDPRESS_DB_USER="press-crm"
@@ -56,7 +54,7 @@
            - press-crm-mysql:mysql
            - press-crm-mysql-civi:mysql-civi
          volumes:
-           - /data/press-crm/wordpress:/var/www/html
+           - /data/files/press-crm/:/var/www/html
          command: /var/www/html/startjobs.sh
          env:
            WORDPRESS_DB_NAME="press-crm"
