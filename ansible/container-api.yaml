@@ -6,6 +6,7 @@
     name: "api"
     state: started
     pull: True
+    restart_policy: always
     env:
       CIVICRM_SERVER=https://members-crm.piratenpartei.ch
       PPSAPI_SECRETS="{{ lookup('hashi_vault', 'secret=secret/api/PPSAPI_SECRETS') }}"

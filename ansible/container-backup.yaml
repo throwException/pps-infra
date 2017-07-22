@@ -4,6 +4,7 @@
          name: "duplicity"
          state: started
          pull: True
+         restart_policy: always
          volumes:
            - /data:/data
          env:
