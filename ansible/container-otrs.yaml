@@ -77,4 +77,5 @@
          volumes:
            - /data/mysql-backup/otrs/:/backup
          env:
+           MYSQL_PASS="{{ lookup('hashi_vault', 'secret=secret/otrs/mysql/password:value') }}"
            MAX_BACKUPS=3

@@ -77,6 +77,7 @@
          volumes:
            - /data/mysql-backup/press-crm/:/backup
          env:
+           MYSQL_PASS="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
            MAX_BACKUPS=3
 
      - name: start backup container for second mysql container
@@ -91,4 +92,5 @@
          volumes:
            - /data/mysql-backup/press-crm-civi/:/backup
          env:
+           MYSQL_PASS="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
            MAX_BACKUPS=3

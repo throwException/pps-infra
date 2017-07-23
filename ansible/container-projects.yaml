@@ -52,4 +52,5 @@
          volumes:
            - /data/mysql-backup/projects/:/backup
          env:
+           MYSQL_PASS="{{ lookup('hashi_vault', 'secret=secret/projects/mysql/password:value') }}"
            MAX_BACKUPS=3

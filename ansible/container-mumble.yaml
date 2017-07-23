@@ -54,4 +54,5 @@
          volumes:
            - /data/mysql-backup/mumble/:/backup
          env:
+           MYSQL_PASS="{{ lookup('hashi_vault', 'secret=secret/mumble/mysql/password:value') }}"
            MAX_BACKUPS=3
