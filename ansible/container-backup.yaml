@@ -13,4 +13,4 @@
            PASSPHRASE="{{ lookup('hashi_vault', 'secret=secret/duplicity/passphrase:value') }}"
            SOURCE_PATH="/data"
            REMOTE_URL="s3://sos.exo.io/pps-backup"
-           PARAMS="--exclude /data/mysql"
+           PARAMS="--exclude /data/mysql --exclude /data/migration --exclude /data/migration-mysql"
