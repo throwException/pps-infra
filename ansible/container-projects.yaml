@@ -7,7 +7,6 @@
          pull: True
          volumes:
            - /data/mysql/projects:/var/lib/mysql
-           - /data/mysql/projects-initdb:/docker-entrypoint-initdb.d
          env:
            MYSQL_RANDOM_ROOT_PASSWORD="true"
            MYSQL_ONETIME_PASSWORD="true"
