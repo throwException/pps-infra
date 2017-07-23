@@ -28,6 +28,9 @@
            - mumble-mysql:mysql
          volumes:
            - /home/core/hack/mumble:/tls
+         published_ports:
+           - 64738:64738
+           - 64738:64738/udp
          env:
            MYSQL_HOST="mysql"
            MYSQL_USER="mumble"
