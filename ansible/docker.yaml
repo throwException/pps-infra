@@ -4,5 +4,6 @@
     - include: container-traefik.yaml
     - include: container-api.yaml
     - include: container-press-crm.yaml
+    - include: container-members-crm.yaml
     - include: container-backup.yaml
     - include: container-projects.yaml
