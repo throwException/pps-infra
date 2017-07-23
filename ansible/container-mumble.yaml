@@ -26,6 +26,8 @@
          pull: True
          links:
            - mumble-mysql:mysql
+         volumes:
+           - /home/core/hack/mumble:/tls
          env:
            MYSQL_HOST="mysql"
            MYSQL_USER="mumble"
@@ -33,8 +35,8 @@
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/mumble/mysql/password:value') }}"
            MAX_USERS="200"
            BANDWIDTH="72000"
-           SSL_CERT="/home/core/hack/chat.piratenpartei.ch.crt"
-           SSL_KEY="/home/core/hack/chat.piratenpartei.ch.pem"
+           SSL_CERT="/tls/chat.piratenpartei.ch.crt"
+           SSL_KEY="/tls/chat.piratenpartei.ch.pem"
            SERVER_TEXT="<br /><font size="3">Willkommen auf dem Mumble Server der <b>Piratenpartei Schweiz</b>. <a href="http://www.piratenpartei.ch">http://www.piratenpartei.ch</a><br />Welcome to the mumble server of the <b>Pirate Party Switzerland</b>. <a href="http://www.pirateparty.ch">http://www.pirateparty.ch</a><br/><br/>For the gamers: You are free and welcome to use this server. Please use the Gaming Channel.<br/><br/> Die Aufzeichnung von Gespr&auml;chen ist nur nach Einwilligung aller im Kanal Anwesenden erlaubt. Neu Eintretende m&uuml;ssen sofort auf eine laufende Aufzeichnung hingeweisen werden. Ausgenommen sind als &ouml;ffentlich deklarierte Sitzungen.<br/> Recording is only allowed after obtaining consent from all people in the channel. New arrivals must be notified immediatly about the recording. Public official meetings are excempt.<br/><br/>  Server Admins: philhug, Exception</font>"
 
      - name: start backup container for first mysql container
