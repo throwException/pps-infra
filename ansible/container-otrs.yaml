@@ -22,6 +22,7 @@
          restart_policy: always
          labels:
           "traefik.enable": "true"
+          "traefik.frontend.rule": "Host:info.piratenpartei.ch"
          state: started
          pull: True
          links:
