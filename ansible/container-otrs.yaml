@@ -7,6 +7,7 @@
          pull: True
          volumes:
            - /data/mysql/otrs:/var/lib/mysql
+           - /data/mysql/otrs.cnf:/etc/mysql/mysql.conf.d/otrs.cnf
            - /data/mysql/otrs-initdb:/docker-entrypoint-initdb.d
          env:
            MYSQL_RANDOM_ROOT_PASSWORD="true"
