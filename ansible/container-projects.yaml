@@ -11,7 +11,7 @@
          env:
            MYSQL_RANDOM_ROOT_PASSWORD="true"
            MYSQL_ONETIME_PASSWORD="true"
-           MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
+           MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/projects/mysql/password:value') }}"
            MYSQL_USER="projects"
            MYSQL_DATABASE="projects"
 
@@ -31,7 +31,7 @@
          env:
            DB_HOST="mysql"
            DB_USER="projects"
-           DB_PASS="{{ lookup('hashi_vault', 'secret=secret/press-crm/mysql/password:value') }}"
+           DB_PASS="{{ lookup('hashi_vault', 'secret=secret/projects/mysql/password:value') }}"
            DB_NAME="projects"
            DB_TYPE="mysql"
            REDMINE_HTTPS="true"
