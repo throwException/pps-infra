@@ -30,6 +30,7 @@
            - otrs-mysql:mysql
          volumes:
            - /data/files/otrs/gnupg/:/opt/otrs/.gnupg/
+           - /data/files/otrs/article/:/opt/otrs/var/article/
          env:
            MYSQL_PORT_3306_TCP_ADDR="mysql"
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/otrs/mysql/password:value') }}"
@@ -52,6 +53,7 @@
            - otrs-mysql:mysql
          volumes:
            - /data/files/otrs/gnupg/:/opt/otrs/.gnupg/
+           - /data/files/otrs/article/:/opt/otrs/var/article/
          command: /otrscron.sh
          env:
            MYSQL_PORT_3306_TCP_ADDR="mysql"
