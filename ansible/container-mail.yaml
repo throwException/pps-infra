@@ -1,0 +1,15 @@
+- name: Outbound-Mail
+  docker_container:
+    image: "mailu/postfix"
+    restart_policy: always
+    name: "postfix"
+    ports: "25:25"
+    state: started
+    volumes:
+      - /data/files/mail/queue:/queue
+    env:
+      DOMAIN=piratenpartei.ch
+      HOSTNAME=coreos-4-p.piratenpartei.ch
+      RELAYNETS="159.100.252.217 172.17.0.0/16"
+      MESSAGE_SIZE_LIMIT=10240000
+      RELAYHOST=""

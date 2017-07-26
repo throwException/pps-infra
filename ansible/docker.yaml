@@ -6,6 +6,7 @@
     - include: container-press-crm.yaml
     - include: container-members-crm.yaml
     - include: container-mumble.yaml
+    - include: container-mail.yaml
     - include: container-backup.yaml
     - include: container-projects.yaml
     - include: container-otrs.yaml
