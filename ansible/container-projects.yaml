@@ -36,7 +36,7 @@
            REDMINE_HTTPS="true"
            REDMINE_ATTACHMENTS_DIR="/home/redmine/data/files"
            NGINX_MAX_UPLOAD_SIZE="1024m"
-           SMTP_HOST="mail-1-p.piratenpartei.ch"
+           SMTP_HOST="smtprelay.piratenpartei.ch"
            SMTP_PORT="25"
            SMTP_ENABLED="true"
 
