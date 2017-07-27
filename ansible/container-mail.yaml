@@ -7,6 +7,7 @@
     state: started
     volumes:
       - /data/files/mail/queue:/queue
+      - /data/files/mail/etc/:/overrides/
     env:
       DOMAIN=piratenpartei.ch
       HOSTNAME=coreos-4-p.piratenpartei.ch
