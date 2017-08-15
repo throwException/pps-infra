@@ -1,6 +1,11 @@
 - name: Docker configuration
   hosts: coreos
   tasks:
+    - name: "enable docker service"
+      systemd:
+        state: started
+        enabled: yes
+        name: docker.service
     - include: container-traefik.yaml
     - include: container-api.yaml
     - include: container-press-crm.yaml
