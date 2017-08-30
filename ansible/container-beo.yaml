@@ -53,8 +53,12 @@
            CIVI_API_URL=https://members-crm.piratenpartei.ch/wp-content/plugins/civicrm/civicrm/extern/rest.php
            CIVI_SITE_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_SITE_KEY') }}"
            CIVI_API_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_API_KEY') }}"
-           API_GNUPG_KEY="televotia-backend@piratenpartei.ch"
+           API_GNUPG_KEY_SENDER="televotia-backend@piratenpartei.ch"
+           API_GNUPG_KEY_RECEIVER="televotia@id.piratenpartei.ch"
            SMTP_HOSTNAME="smtprelay.piratenpartei.ch"
+           SMTP_USER=""
+           SMTP_PASSWORD=""
+           SMTP_PORT="25"
            IDAPI_URL="idapi.piratenpartei.ch"
            ID_URL="id.piratenpartei.ch"
            GPG_PRIVATEKEY_PASSPHRASE="{{ lookup('hashi_vault', 'secret=secret/beo/GPG_PRIVATEKEY_PASSPHRASE:value') }}"
