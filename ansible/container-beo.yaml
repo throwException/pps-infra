@@ -51,8 +51,8 @@
            MYSQL_DATABASE="beo_backend"
            MYSQL_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/beo/mysql/password:value') }}"
            CIVI_API_URL=https://members-crm.piratenpartei.ch/wp-content/plugins/civicrm/civicrm/extern/rest.php
-           CIVI_SITE_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_SITE_KEY') }}"
-           CIVI_API_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_API_KEY') }}"
+           CIVI_SITE_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_SITE_KEY:value') }}"
+           CIVI_API_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_API_KEY:value') }}"
            API_GNUPG_KEY_SENDER="televotia-backend@piratenpartei.ch"
            API_GNUPG_KEY_RECEIVER="televotia@id.piratenpartei.ch"
            SMTP_HOSTNAME="smtprelay.piratenpartei.ch"

@@ -7,13 +7,12 @@
          pull: True
          env:
            CIVI_API_URL=https://members-crm.piratenpartei.ch/wp-content/plugins/civicrm/civicrm/extern/rest.php
-           CIVI_SITE_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_SITE_KEY') }}"
-           CIVI_API_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_API_KEY') }}"
+           CIVI_SITE_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_SITE_KEY:value') }}"
+           CIVI_API_KEY="{{ lookup('hashi_vault', 'secret=secret/api/CIVICRM_API_KEY:value') }}"
            SMTP_SERVER_ADDRESS="smtprelay.piratenpartei.ch"
            SMTP_SERVER_PORT="25"
            SMTP_USERNAME=""
            SMTP_PASSWORD=""
            SMTP_STARTTLS=0
            PAYLINK_BASE="https://www.piratenpartei.ch"
-           PAYLINK_SECRET="{{ lookup('hashi_vault', 'secret=secret/factura/PAYLINK_SECRET') }}"
-
+           PAYLINK_SECRET="{{ lookup('hashi_vault', 'secret=secret/factura/PAYLINK_SECRET:value') }}"
